@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="声明学习视频来自B站UP主 泷羽sec,如涉及侵权马上删除文章 笔记的只是方便各位师傅学习知识,以下网站只涉及学习内容,其他的都与本人无关,切莫逾越法律红线,否则后果自负 做红队的话，主要专研python、php、java三选二就可以了 一、XSS的定义XSS全称为跨站脚本攻击（Cross - Site Scripting）。它是一种常见的网络安全漏洞类型。攻击者通过在目标网站中注入恶意脚本（通常">
+<meta property="og:type" content="article">
+<meta property="og:title" content="泷羽sec-星光不负a-学习打卡-安全见闻(2)">
+<meta property="og:url" content="http://example.com/2024/12/07/%E5%AE%89%E5%85%A8%E8%A7%81%E9%97%BB2/index.html">
+<meta property="og:site_name" content="星光不负a">
+<meta property="og:description" content="声明学习视频来自B站UP主 泷羽sec,如涉及侵权马上删除文章 笔记的只是方便各位师傅学习知识,以下网站只涉及学习内容,其他的都与本人无关,切莫逾越法律红线,否则后果自负 做红队的话，主要专研python、php、java三选二就可以了 一、XSS的定义XSS全称为跨站脚本攻击（Cross - Site Scripting）。它是一种常见的网络安全漏洞类型。攻击者通过在目标网站中注入恶意脚本（通常">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-12-07T14:34:49.878Z">
+<meta property="article:modified_time" content="2024-12-07T14:34:49.878Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2024/12/07/%E5%AE%89%E5%85%A8%E8%A7%81%E9%97%BB2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>泷羽sec-星光不负a-学习打卡-安全见闻(2) | 星光不负a</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">星光不负a</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/07/%E5%AE%89%E5%85%A8%E8%A7%81%E9%97%BB2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="星光不负a">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          泷羽sec-星光不负a-学习打卡-安全见闻(2)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-12-07 22:34:49" itemprop="dateCreated datePublished" datetime="2024-12-07T22:34:49+08:00">2024-12-07</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><strong>声明</strong><br><strong>学习视频来自B站UP主 泷羽sec,如涉及侵权马上删除文章 笔记的只是方便各位师傅学习知识,以下网站只涉及学习内容,其他的都与本人无关,切莫逾越法律红线,否则后果自负</strong></p>
+<p><strong>做红队的话，主要专研python、php、java三选二就可以了</strong></p>
+<p><strong>一、XSS的定义</strong><br><strong>XSS全称为跨站脚本攻击（Cross - Site Scripting）。</strong>它是一种常见的网络安全漏洞类型。攻击者通过在目标网站中注入恶意脚本（通常是JavaScript脚本），当用户访问被注入恶意脚本的页面时，这些脚本就会在用户的浏览器中执行。</p>
+<p><strong>二、XSS的攻击类型</strong><br><strong>反射型XSS</strong><br>这种类型的XSS攻击通常是将恶意脚本作为用户输入的一部分，然后通过服务器端的脚本直接将输入反射到响应页面中。例如，一个搜索框，用户输入恶意脚本，服务器端没有对输入进行合适的过滤就直接将其显示在搜索结果页面上。当其他用户访问这个搜索结果页面时，就会触发恶意脚本的执行。<br><strong>存储型XSS</strong><br>存储型XSS攻击更为危险。攻击者将恶意脚本存储在目标网站的数据库中。比如在一个论坛系统中，攻击者在发表帖子时插入恶意脚本内容。当其他用户查看这个帖子时，存储在数据库中的恶意脚本就会被加载并在用户浏览器中执行。这意味着只要帖子存在，就可能不断有用户受到攻击。<br><strong>DOM - based XSS</strong><br>这种类型的XSS攻击是基于文档对象模型（DOM）的。它主要是通过修改页面的DOM结构来执行恶意脚本。例如，利用页面上的JavaScript代码中的漏洞，攻击者可以通过操纵URL参数来改变DOM结构，从而导致恶意脚本的执行。<br><strong>三、XSS攻击的危害</strong><br><strong>窃取用户信息</strong><br>恶意脚本可以获取用户在浏览器中的各种信息，如登录凭证（用户名、密码等）、个人信息（姓名、地址、联系方式等）。这些信息可能会被发送到攻击者的服务器上，导致用户隐私泄露。<br><strong>篡改页面内容</strong><br>攻击者可以利用XSS攻击修改页面的显示内容，例如将正常的购物页面篡改为虚假的支付页面，诱导用户输入支付信息，从而进行诈骗。<br><strong>发起其他攻击</strong><br>一旦执行了XSS脚本，攻击者还可以利用用户的浏览器作为跳板，发起其他攻击，如分布式拒绝服务攻击（DDoS）等，进一步危害目标网站或其他网络资源。<br><strong>四、防范XSS攻击的措施</strong><br><strong>输入验证</strong><br>对于用户输入的内容，无论是在服务器端还是在客户端，都要进行严格的验证。例如，只允许输入特定类型的字符，过滤掉可能用于脚本注入的特殊字符，如“\u003C”、“&gt;”、“script”等标签。<br><strong>输出编码</strong><br>在将数据输出到网页之前，对数据进行编码。这样可以确保即使数据中包含特殊字符，也不会被浏览器当作脚本执行。例如，将“\u003C”编码为“\u003C”，“&gt;”编码为“&gt;”。<br><strong>设置安全的HTTP头</strong><br>可以设置一些安全相关的HTTP头，如Content - Security - Policy（CSP）头。CSP可以限制页面可以加载的资源来源，防止恶意脚本的加载和执行。<br><strong>定期进行安全审计</strong><br>网站开发者应该定期对网站进行安全审计，检查是否存在XSS漏洞。可以使用一些自动化的安全测试工具，如OWASP ZAP等，也可以进行手动的代码审查。</p>
+<p><strong>OWASP 是开放 Web 应用程序安全项目（Open Web Application Security Project）的简称，它是一个非营利基金会。</strong></p>
+<p>OWASP 的主要目标是通过为社区提供工具、知识和资源，提高软件的安全性。它致力于让开发人员、设计师、架构师和企业了解并采取必要的安全措施，以保护 Web 应用程序免受各种安全威胁。</p>
+<p><strong>OWASP 提供了一系列的项目和资源，包括：</strong><br><strong>安全指南：</strong>如 OWASP Top 10，列出了最常见的 Web 应用程序安全风险，帮助开发人员和企业识别和防范这些风险。<br><strong>安全工具：</strong>提供各种用于安全测试和漏洞评估的工具。<br><strong>培训和教育：</strong>开展安全培训课程和研讨会，提高安全意识和技能。<br><strong>研究和社区：</strong>鼓励安全研究和社区参与，分享最新的安全知识和经验。<br>OWASP 的工作对于提高 Web 应用程序的安全性具有重要意义，帮助开发人员和企业构建更安全的应用程序，保护用户的信息和数据安全。许多组织和企业都参考 OWASP 的指南和资源来加强其应用程序的安全防护。</p>
+<p><strong>Zed Attack Proxy：这是一个广泛使用的 Web 应用程序扫描器，用于测试和评估 Web 应用程序的安全性。</strong>它是开源的，由 OWASP（开放 Web 应用程序安全项目）社区维护。</p>
+<p><strong>点击劫持</strong><br><strong>一、定义</strong><br><strong>点击劫持（Clickjacking）是一种恶意技术，也被称为UI - 覆盖攻击（UI - redress attack）。</strong>它主要是通过欺骗用户在不知情的情况下点击页面元素来执行恶意操作。</p>
+<p><strong>二、原理</strong><br><strong>分层技术</strong><br>攻击者会创建一个看似正常的网页（上层页面），这个页面可能包含一些诱人的内容，如有趣的视频、吸引人的图片或者看似正常的操作按钮。<br>然后，在这个上层页面之下，隐藏着一个目标页面（下层页面），这个目标页面包含了攻击者想要用户执行的操作元素，比如恶意的链接、购买按钮或者授权按钮等。<br><strong>样式设置</strong><br>攻击者通过CSS（层叠样式表）等技术来调整上层页面的透明度等样式属性。这样，上层页面看起来是正常的可视内容，但实际上用户看到的是上层页面和下层页面元素的组合。<br>例如，将上层页面设置为半透明，使得下层页面的某些元素透过上层页面显示出来，用户以为是在点击上层页面的正常元素，实际上却点击到了下层页面的恶意元素。<br><strong>三、危害</strong><br><strong>账号安全受损</strong><br>如果用户在被点击劫持的情况下点击了下层页面中的恶意登录按钮，可能会泄露自己的账号和密码。攻击者就可以利用获取到的账号信息登录用户的账户，进行非法操作，如窃取用户资金、篡改用户信息等。<br><strong>隐私泄露</strong><br>可能会导致用户在不知情的情况下授权某些隐私权限，例如允许恶意应用访问用户的联系人、相册等隐私数据。<br><strong>恶意操作执行</strong><br>攻击者可以让用户在不知情的情况下点击广告链接，从而为攻击者带来非法的广告收益。或者执行一些对用户设备有害的操作，如下载恶意软件等。<br><strong>四、防范措施</strong><br><strong>浏览器防范</strong><br>许多现代浏览器都提供了一些防范点击劫持的功能。例如，一些浏览器可以检测到页面中的分层异常情况，并向用户发出警告。<br>用户可以及时更新浏览器版本，以确保浏览器具有最新的安全防护机制。<br><strong>网站开发防范</strong><br>网站开发者可以在服务器端设置X - Frame - Options头信息。这个头信息可以控制网页是否可以被嵌套在其他页面中。例如，设置为“DENY”表示不允许任何页面嵌套本页面，从而防止点击劫持攻击。<br>还可以使用内容安全策略（CSP），通过定义哪些来源的脚本、样式等资源是可信任的，来防止恶意的脚本注入和样式篡改，从而抵御点击劫持攻击。</p>
+<p><strong>一、什么是Web缓存</strong><br>Web缓存是一种用于提高Web应用性能的技术。它存储了之前请求过的网页内容（如HTML文件、图片、脚本等），当用户再次请求相同内容时，可以直接从缓存中获取，而不需要再次从服务器获取，从而减少服务器负载、加快网页加载速度。</p>
+<p><strong>二、Web缓存漏洞产生的原因</strong><br><strong>缓存策略配置不当</strong><br><strong>过期时间设置问题</strong><br>如果缓存的过期时间设置过长，可能会导致用户获取到陈旧的数据。例如，一个新闻网站的缓存过期时间被错误地设置为一年，当新闻内容已经更新时，用户可能仍然看到旧的新闻内容，这可能会导致信息误导。<br><strong>缓存范围设置错误</strong><br>当缓存范围设置过大时，可能会缓存一些不应该被缓存的内容。比如，包含用户敏感信息（如登录后的个性化页面，其中有用户名、账户余额等信息）的页面被缓存，就可能导致这些敏感信息被未授权的用户获取。<br><strong>缓存替换算法漏洞</strong><br>一些缓存替换算法可能存在缺陷。例如，在某些基于最近最少使用（LRU）算法的缓存系统中，如果攻击者能够巧妙地构造请求，使得真正需要缓存的重要页面被替换出去，而恶意内容被缓存，就可能造成安全风险。攻击者可能会构造大量虚假请求，使缓存系统认为某些合法但不经常使用的页面是最近最少使用的，从而将其替换，然后将恶意内容缓存起来，当正常用户访问时就会获取到恶意内容。<br><strong>缓存共享漏洞</strong><br>在多用户共享缓存的环境中，如果没有正确的隔离机制，可能会出现问题。例如，在一个共享主机环境中，不同用户的网站可能共享缓存。如果一个恶意用户能够突破缓存隔离，就可以篡改其他用户网站的缓存内容。假设用户A和用户B的网站在同一个共享缓存环境下，恶意用户C通过某种漏洞突破了缓存隔离，将用户A网站的恶意篡改版本缓存起来，当用户B的访客访问用户A的网站（可能存在某些关联访问情况）时，就会获取到被篡改的恶意内容。<br><strong>三、Web缓存漏洞的危害</strong><br><strong>信息泄露</strong><br>如前面提到的，如果包含敏感信息的页面被缓存并且被不当获取，可能会导致用户的隐私信息泄露。例如，一个电商网站缓存了用户的订单详情页面，其中包含用户的收货地址、购买商品等信息，一旦被泄露，用户可能会遭受诈骗等风险。<br><strong>内容篡改</strong><br>攻击者可能通过利用缓存漏洞篡改缓存中的内容，从而误导用户。比如，篡改一个金融网站关于汇率的缓存页面，显示虚假的汇率信息，可能会影响投资者的决策，造成经济损失。<br><strong>拒绝服务（DoS）攻击</strong><br>攻击者可以利用缓存替换算法漏洞，大量占用缓存空间，使得正常的内容无法被缓存或者被频繁替换，导致服务器需要不断地重新生成页面内容，增加服务器负载，最终可能导致服务器无法正常响应请求，造成拒绝服务的情况。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/12/07/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
